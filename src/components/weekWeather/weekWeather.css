@@ -1,0 +1,139 @@
+.week__info-search {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+}
+
+.search_input {
+	width: 430px;
+	height: 45px;
+	border-radius: 30px;
+	border: 1px solid white;
+	font-size: 24px;
+	padding-left: 25px;
+}
+
+::placeholder {
+	font-size: 24px;
+	color: #8C6BAE;
+	text-align: center;
+}
+
+.search_input:focus {
+	outline: none;
+}
+
+.input__search-block {
+	display: flex;
+	border: 1px solid white;
+	border-radius: 30px;
+	background-color: white;
+	box-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	width: 500px;
+	height: 50px;
+}
+
+.bi-search {
+	color: #8C6BAE;
+	width: 35px;
+	height: 35px;
+}
+
+.search_btn {
+	border: none;
+	background-color: white;
+	width: 50px;
+	height: 50px;
+	border-radius: 30px;
+	cursor: pointer;
+	padding-right: 50px;
+}
+
+.week__info-location {
+	display: flex;
+	align-items: center;
+
+}
+
+.week__info-city {
+	color: #FFF;
+	text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	font-family: Inter;
+	font-size: 60px;
+	font-style: normal;
+	font-weight: 300;
+}
+
+.location_icon {
+	width: 60px;
+	height: 60px;
+	display: block;
+	margin-right: 30px;
+}
+
+.week__btn-panel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.week__info-title {
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+.week__btn {
+	width: 200px;
+	height: 60px;
+	margin-right: 100px;
+	border-radius: 30px;
+	border: none;
+	color: #8C6BAE;
+	text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	font-family: Inter;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 500;
+	background-color: #edc5ef;
+	cursor:pointer;
+}
+
+.week__btn:hover {
+	background-color: #8C6BAE;
+	color: #edc5ef;
+	box-shadow: 7px 7px 20px #e9cfdc,
+		-2px 1px 30px #e9cfdc;
+}
+
+.week__btn:last-child() {
+	margin-right: 0;
+}
+
+.week__info-links{
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+	
+}
+
+.week__info-link{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	margin-right: 50px;
+	align-items: center;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.week__info-link:hover {
+	text-shadow: 7px 7px 20px #ff0080, -2px 1px 30px #ff0080;
+}

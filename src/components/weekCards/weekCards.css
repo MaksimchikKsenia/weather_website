@@ -1,0 +1,25 @@
+.info__cards-flex {
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+	padding-bottom: 70px;
+}
+
+.card {
+	border-radius: 11px;
+	background: rgba(255, 255, 255, 0.20);
+	filter: blur(0.5692583918571472px);
+	margin-right: 100px;
+	width: 210px;
+	height: 300px;
+}
+
+.card:last-child {
+	margin-right: 0;
+}
+
+.card__img{
+	width: 90px;
+	height: 90px;
+	margin-bottom: 10px;
+}

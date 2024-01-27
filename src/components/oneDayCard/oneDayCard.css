@@ -1,0 +1,75 @@
+.oneDay__title {
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 300;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.weather__hours-cards {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 50px;
+	row-gap: 50px;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 100px;
+}
+
+.weather__hours-card {
+	flex-shrink: 0;
+	border-radius: 100px;
+	background: rgba(255, 255, 255, 0.26);
+	height: 300px;
+	width: 250px;
+}
+
+.weather__hours-card:last-child {
+	margin-right: 0;
+}
+
+
+.weather__hours-img {
+	display: block;
+	margin: 0px auto;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 15px;
+
+}
+
+.weather__hours-img-l {
+	display: block;
+	margin: 0px auto;
+	width: 120px;
+	height: 80px;
+	margin-bottom: 10px;
+
+}
+
+.weather__card-temp {
+	font-size: 30px;
+	font-weight: 500;
+	margin-bottom: 20px;
+	margin-top: 0;
+	text-align: center;
+}
+
+.weather__card-time {
+	font-size: 50px;
+	font-weight: 500;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.weather__sun {
+	display: flex;
+	margin: 50px auto;
+	justify-content: center;
+	align-items: center;
+}
+
+.weather__sunrise {
+	margin-right: 100px;
+}
