@@ -5,3 +5,17 @@
 	display: block;
 	margin: 30px auto;
 }
+
+@media screen and (max-width:1000px) {
+	.gifka {
+		height: 450px;
+	}
+
+}
+
+@media screen and (max-width:500px) {
+	.gifka {
+		height: 300px;
+	}
+
+}

@@ -81,7 +81,7 @@ const View = ({ data }) => {
         })}
       </div>
       <p className="singleWeather__title">Details about the weather</p>
-      <div className="info__cards-flex">
+      <div className="info__cards-grid">
         <div className="card">
           <p className="card__name info">clouds</p>
           <img src={cloud} />

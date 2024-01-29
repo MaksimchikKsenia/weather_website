@@ -112,3 +112,29 @@
 	font-weight: 300;
 	text-align: center;
 }
+
+@media screen and (max-width:1200px) {
+	.container {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+
+@media screen and (max-width:1000px) {
+
+	.info__block-right {
+		padding-right: 0;
+	}
+}
+
+@media screen and (max-width:660px) {
+	.info__block-flex {
+		flex-wrap: wrap;
+		margin-left: 0;
+	}
+
+	.info__block-left {
+		margin: 0 auto;
+		;
+	}
+}

@@ -1,36 +1,53 @@
-.info__cards-flex {
-	display: flex;
+.week__cards-grid {
+	display: grid;
 	justify-content: center;
+	grid-template-columns: repeat(5, 1fr);
+	column-gap: 60px;
 	padding-top: 50px;
 	padding-bottom: 70px;
+	justify-items: center;
 }
 
-.card {
-	margin-top: 15px;
+.week__card {
 	border-radius: 11px;
 	background: rgba(255, 255, 255, 0.20);
 	filter: blur(0.5692583918571472px);
-	margin-right: 100px;
-	width: 210px;
-	height: 300px;
-	transition:margin-top ease 1s;
+	width: 190px;
+	height: 280px;
+	transition: margin-top ease 1s;
 }
 
-.card:last-child {
-	margin-right: 0;
+.card__date {
+	text-align: center;
+	margin-bottom: 10px;
 }
 
-.card:hover{
+.week__card:hover {
 	margin-top: 7px;
 	box-shadow: rgb(255, 255, 255) 0px 14px 28px, rgba(236, 233, 233, 0.22) 0px 10px 10px;
 }
 
-.card__img{
+.card__img {
 	width: 90px;
 	height: 90px;
 	margin-bottom: 10px;
 }
 
-.linkForDay{
+.linkForDay {
 	text-decoration: none;
+}
+
+@media screen and (max-width:1200px) {
+	.week__cards-grid {
+		grid-template-columns: repeat(2, 300px);
+		column-gap: 30px;
+		row-gap: 30px;
+	}
+}
+
+@media screen and (max-width:580px) {
+	.week__cards-grid {
+		grid-template-columns: repeat(1, 1fr);
+		row-gap: 30px;
+	}
 }

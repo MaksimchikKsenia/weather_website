@@ -1,16 +1,13 @@
-import error from "../../images/error.webp";
+import errorGifka from "../../images/404gifka.gif";
+import "./errorMessage.css"
 const ErrorMessage = () => {
   return (
-    <img
-      style={{
-        display: "block",
-        width: "750px",
-        height: "550px",
-        objectFit: "contain",
-        margin: "0 auto",
-      }}
-      src={error}
-    /> // обращение к статичному файлу
+    <div className="container">
+      <p className="blinking-text text">
+        Error!Please try to upload the page and check the Internet connection!
+      </p>
+      <img className="gifka" src={errorGifka} />
+    </div>
   );
 };
 

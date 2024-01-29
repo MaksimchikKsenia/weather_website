@@ -14,6 +14,7 @@
 	justify-content: center;
 	align-items: center;
 	padding-bottom: 100px;
+	justify-items: center;
 }
 
 .weather__hours-card {
@@ -72,4 +73,25 @@
 
 .weather__sunrise {
 	margin-right: 100px;
+}
+
+@media screen and (max-width:1200px) {
+	.weather__hours-cards {
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: 30px;
+		row-gap: 30px;
+
+	}
+}
+
+@media screen and (max-width:580px) {
+	.weather__hours-cards {
+		grid-template-columns: repeat(1, 1fr);
+		row-gap: 40px;
+
+	}
+
+	.weather__hours-card {
+		width: 200px;
+	}
 }

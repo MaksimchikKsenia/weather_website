@@ -34,7 +34,7 @@ const WeekCards = () => {
 
 const View = ({ data }) => {
   return (
-    <div className="info__cards-flex">
+    <div className=" week__cards-grid">
       {data.map((day) => {
         const temp = day["temp"];
         const imagePath = `https://openweathermap.org/img/wn/${day["iconID"]}.png`;
@@ -49,10 +49,10 @@ const View = ({ data }) => {
         const fullDate = `${date}.${month}`;
         const proveDate = `${day["date"].getDate()}`;
         return (
-          <div className="card" key={fullDate}>
+          <div className="week__card" key={fullDate}>
             <Link to={`/weeklyForecast/${proveDate}`} className="linkForDay">
               <div className="card__info">
-                <p className="card__name info">{fullDate}</p>
+                <p className="card__date info">{fullDate}</p>
                 <img src={imagePath} className="card__img" />
                 <p className="card__info info">{temp} °C</p>
               </div>

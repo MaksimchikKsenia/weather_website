@@ -1,0 +1,19 @@
+   @keyframes blink-shadow {
+
+   	0%,
+   	100% {
+		text-shadow: 7px 7px 20px #ff0080,
+				-2px 1px 30px #ff0080;
+   	}
+
+   	50% {
+   		text-shadow: none;
+   	}
+   }
+
+   .blinking-text {
+   	font-size: 24px;
+   	font-weight: bold;
+   	animation: blink-shadow 1s infinite;
+   	text-align: center;
+   }

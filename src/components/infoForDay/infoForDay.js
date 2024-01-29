@@ -40,7 +40,7 @@ const View = ({ data }) => {
   const { temp_max, temp_min, pressure, clouds, sunrise, sunset } = data;
 
   return (
-    <div className="info__cards-flex">
+    <div className="info__cards-grid">
       <div className="card">
         <p className="card__name info">clouds</p>
         <img src={cloud} />
