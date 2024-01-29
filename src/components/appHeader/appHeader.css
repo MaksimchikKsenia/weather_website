@@ -1,0 +1,28 @@
+.links__flex {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 50px;
+
+}
+
+.link {
+	margin-right: 50px;
+	align-items: center;
+	text-decoration: none;
+	color: #FFF;
+	text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	font-family: Inter;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.link:hover {
+	text-shadow: 7px 7px 20px #ff0080,
+		-2px 1px 30px #ff0080;
+}
+
+.link:last-child() {
+	margin-right: 0;
+}

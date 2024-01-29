@@ -1,0 +1,10 @@
+.singleWeather__title {
+	color: #FFF;
+	text-shadow: -1.51px 2.26px 0.75px rgba(0, 0, 0, 0.10);
+	font-family: Inter;
+	font-size: 56px;
+	font-style: normal;
+	font-weight: 300;
+	margin: 30px auto;
+	text-align: center;
+}

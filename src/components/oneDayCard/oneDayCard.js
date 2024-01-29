@@ -7,16 +7,19 @@ import Spinner from "../spinner/spinner";
 
 const OneDayCard = () => {
   const [tomorrowInfo, setWeekInfo] = useState("");
+  
   const { getWeekWeather, clearError, process, setProcess } =
     useWeatherService();
 
   useEffect(() => {
     updateInfo();
-  }, []);
+  }, [localStorage.getItem("city")]);
 
   const updateInfo = () => {
     clearError();
-    getWeekWeather()
+    getWeekWeather(
+      localStorage.getItem("city") ? localStorage.getItem("city") : "Гродно"
+    )
       .then(onInfoLoaded)
       .then(() => setProcess("confirmed"));
   };

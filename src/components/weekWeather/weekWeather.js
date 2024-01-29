@@ -11,14 +11,14 @@ const WeekWeather = () => {
   const [isTomorrow, setIsTomorrow] = useState("");
 
   const inputChange = (e) => {
-    if(e.target.value !==''){
-        setSearchValue(e.target.value);
-        localStorage.setItem("city", e.target.value.trimLeft());
-    }else{
-      alert('вы не ввели город!')
+    if (e.target.value !== "") {
+      setSearchValue(e.target.value);
+      localStorage.setItem("city", e.target.value.trimLeft());
+    } else {
+      alert("вы не ввели город!");
       return;
     }
-    
+
     console.log(e.target.value);
   };
 
@@ -35,17 +35,16 @@ const WeekWeather = () => {
       <div className="container">
         <div className="week__info-links">
           <Link className="week__info-link" to="/">
-            На главную
+            Main Page
           </Link>
-          <a className="week__info-link" href="">
-            О компании
-          </a>
         </div>
         <div className="week__info-search">
           <div className="week__info-location">
             <img src={location_icon} alt="location" className="location_icon" />
             <p className="week__info-city">
-              {searchValue ? searchValue : "City"}
+              {localStorage.getItem("city")
+                ? localStorage.getItem("city")
+                : "Гродно"}
             </p>
           </div>
           <div className="input__search-block">

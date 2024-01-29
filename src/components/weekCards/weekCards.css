@@ -6,20 +6,31 @@
 }
 
 .card {
+	margin-top: 15px;
 	border-radius: 11px;
 	background: rgba(255, 255, 255, 0.20);
 	filter: blur(0.5692583918571472px);
 	margin-right: 100px;
 	width: 210px;
 	height: 300px;
+	transition:margin-top ease 1s;
 }
 
 .card:last-child {
 	margin-right: 0;
 }
 
+.card:hover{
+	margin-top: 7px;
+	box-shadow: rgb(255, 255, 255) 0px 14px 28px, rgba(236, 233, 233, 0.22) 0px 10px 10px;
+}
+
 .card__img{
 	width: 90px;
 	height: 90px;
 	margin-bottom: 10px;
+}
+
+.linkForDay{
+	text-decoration: none;
 }

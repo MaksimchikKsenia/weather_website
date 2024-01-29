@@ -20,7 +20,9 @@ const InfoForDay = () => {
 
   const updateDayInfo = () => {
     clearError();
-    getTodayWeather()
+    getTodayWeather(
+      localStorage.getItem("city") ? localStorage.getItem("city") : "Гродно"
+    )
       .then(onInfoLoaded)
       .then(() => setProcess("confirmed"));
   };

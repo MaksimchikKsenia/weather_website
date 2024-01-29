@@ -9,6 +9,7 @@ import Clock from "../utils/clock";
 
 const MainInfo = () => {
   const [info, setInfo] = useState(null);
+
   const { getTodayWeather, clearError, process, setProcess } =
     useWeatherService();
 
@@ -18,7 +19,9 @@ const MainInfo = () => {
 
   const updateInfo = () => {
     clearError();
-    getTodayWeather()
+    getTodayWeather(
+      localStorage.getItem("city") ? localStorage.getItem("city") : "Гродно"
+    )
       .then(onInfoLoaded)
       .then(() => setProcess("confirmed"));
   };
@@ -26,15 +29,11 @@ const MainInfo = () => {
   const onInfoLoaded = (info) => {
     setInfo(info);
   };
-
-
-
-
   return <div className="container"> {setContent(process, View, info)}</div>;
 };
 
 const View = ({ data }) => {
-  const { date, iconID, temp, humidity, windSpeed, rain, city } = data;
+  const { date, iconID, temp, humidity, windSpeed, rain } = data;
 
   const monthNames = [
     "January",
@@ -77,27 +76,24 @@ const View = ({ data }) => {
           alt="clouds"
         />
         <div className="info__block-degrees">
-          <p className="degrees text">{temp}</p>
-          <p className="dgr">°C</p>
+          <p className="degrees text">{temp}&deg;</p>
+          
         </div>
         <p className="info__block-date text">{fullDate}</p>
         <p className="info__block-day text">
           {dayOfWeek} | {<Clock />}
         </p>
         <p className="info__block-moreInfo text">
-           {windSpeed}  | hum {humidity} | {rain}
+          {windSpeed} | hum {humidity} | {rain}
         </p>
       </div>
       <div className="info__block-right">
-        <div className="links__flex">
-          <Link className="link" to="/weeklyForecast">
-            Погода на неделю
-          </Link>
-          <a className="link" href="">
-            О компании
-          </a>
-        </div>
-        <p className="text city__info">Погода сегодня в городе {localStorage.getItem('city') ?localStorage.getItem('city') : 'Гродно' }</p>
+        <p className="text city__info">
+          Weather today in{" "}
+          {localStorage.getItem("city")
+            ? localStorage.getItem("city")
+            : "Гродно"}
+        </p>
       </div>
     </div>
   );

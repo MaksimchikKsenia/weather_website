@@ -3,6 +3,7 @@ import "./weekCards.css";
 import { useState, useEffect } from "react";
 import useWeatherService from "../services/weatherService";
 import setContent from "../utils/setContent";
+import { Link } from "react-router-dom";
 const WeekCards = () => {
   const [weekInfo, setWeekInfo] = useState("");
   const { getWeekWeather, clearError, process, setProcess } =
@@ -10,11 +11,13 @@ const WeekCards = () => {
 
   useEffect(() => {
     updateInfo();
-  }, []);
+  }, [localStorage.getItem("city")]);
 
   const updateInfo = () => {
     clearError();
-    getWeekWeather()
+    getWeekWeather(
+      localStorage.getItem("city") ? localStorage.getItem("city") : "Гродно"
+    )
       .then(onInfoLoaded)
       .then(() => setProcess("confirmed"));
   };
@@ -24,7 +27,6 @@ const WeekCards = () => {
       return day["date"].getHours() == 12;
     });
     setWeekInfo(weekArr);
-    console.log(weekArr);
   };
 
   return <>{setContent(process, View, weekInfo)}</>;
@@ -45,11 +47,16 @@ const View = ({ data }) => {
             ? `0${day["date"].getMonth() + 1}`
             : day["date"].getMonth() + 1;
         const fullDate = `${date}.${month}`;
+        const proveDate = `${day["date"].getDate()}`;
         return (
-          <div className="card">
-            <p className="card__name info">{fullDate}</p>
-            <img src={imagePath} className="card__img" />
-            <p className="card__info info">{temp} °C</p>
+          <div className="card" key={fullDate}>
+            <Link to={`/weeklyForecast/${proveDate}`} className="linkForDay">
+              <div className="card__info">
+                <p className="card__name info">{fullDate}</p>
+                <img src={imagePath} className="card__img" />
+                <p className="card__info info">{temp} °C</p>
+              </div>
+            </Link>
           </div>
         );
       })}
