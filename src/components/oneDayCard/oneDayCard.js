@@ -7,7 +7,7 @@ import Spinner from "../spinner/spinner";
 
 const OneDayCard = () => {
   const [tomorrowInfo, setWeekInfo] = useState("");
-  
+
   const { getWeekWeather, clearError, process, setProcess } =
     useWeatherService();
 
@@ -26,9 +26,16 @@ const OneDayCard = () => {
 
   const onInfoLoaded = (info) => {
     const today = new Date();
+    let tomorrow = new Date(today);
+
+    tomorrow.setDate(today.getDate() + 1);
+    // Преобразуем завтрашнюю дату в строку в формате "ГГГГ-ММ-ДД"
+    const tomorrowStr = tomorrow.toString().slice(0, 10);
     const tomorrowArr = info.filter((day) => {
-      return day["date"].getDate() === today.getDate() + 1;
+      // Сравниваем даты в формате "ГГГГ-ММ-ДД"
+      return day.date.slice(0, -3) === tomorrowStr.substring(8, 10);
     });
+
     setWeekInfo(tomorrowArr);
   };
 
@@ -36,6 +43,7 @@ const OneDayCard = () => {
 };
 
 const View = ({ data }) => {
+  console.log(data);
   return (
     <div className="container ">
       <p className="text oneDay__title">Weather during the day</p>
@@ -43,17 +51,9 @@ const View = ({ data }) => {
         {data.map((dayTime) => {
           const temp = dayTime["temp"];
           const imagePath = `https://openweathermap.org/img/wn/${dayTime["iconID"]}.png`;
-          const hour =
-            dayTime["date"].getHours() < 10
-              ? "0" + dayTime["date"].getHours()
-              : dayTime["date"].getHours();
-          const minutes =
-            dayTime["date"].getMinutes() < 10
-              ? "0" + dayTime["date"].getMinutes()
-              : dayTime["date"].getMinutes();
-          const time = `${hour}:${minutes}`;
+          const time = dayTime.time.slice(0, -3);
           return (
-            <div className="weather__hours-card ">
+            <div className="weather__hours-card " key={time.slice(0, -3)}>
               <p className="text weather__card-time">{time}</p>
               <img src={imagePath} className="weather__hours-img" />
               <p className="text weather__card-temp">{temp} °C</p>

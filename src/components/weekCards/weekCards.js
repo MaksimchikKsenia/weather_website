@@ -23,36 +23,32 @@ const WeekCards = () => {
   };
 
   const onInfoLoaded = (info) => {
-    const weekArr = info.filter((day) => {
-      return day["date"].getHours() == 12;
+    const weekArr = info.filter((day, i) => {
+      if (i % 8 === 0) {
+        return day;
+      }
     });
     setWeekInfo(weekArr);
+    console.log(weekArr);
   };
 
   return <>{setContent(process, View, weekInfo)}</>;
 };
 
 const View = ({ data }) => {
+  console.log(data);
   return (
     <div className=" week__cards-grid">
       {data.map((day) => {
         const temp = day["temp"];
         const imagePath = `https://openweathermap.org/img/wn/${day["iconID"]}.png`;
-        const date =
-          day["date"].getDate() < 10
-            ? "0" + day["date"].getDate()
-            : day["date"].getDate();
-        const month =
-          day["date"].getMonth() + 1 < 10
-            ? `0${day["date"].getMonth() + 1}`
-            : day["date"].getMonth() + 1;
-        const fullDate = `${date}.${month}`;
-        const proveDate = `${day["date"].getDate()}`;
+        const date = day.date;
+        const proveDate = date.slice(0, -3);
         return (
-          <div className="week__card" key={fullDate}>
+          <div className="week__card" key={date}>
             <Link to={`/weeklyForecast/${proveDate}`} className="linkForDay">
               <div className="card__info">
-                <p className="card__date info">{fullDate}</p>
+                <p className="card__date info">{date}</p>
                 <img src={imagePath} className="card__img" />
                 <p className="card__info info">{temp} °C</p>
               </div>

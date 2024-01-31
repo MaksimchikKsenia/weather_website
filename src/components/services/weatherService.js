@@ -41,7 +41,13 @@ const useWeatherService = () => {
 
   const _transformWeekData = (day) => {
     return {
-      date: new Date(day.dt * 1000),
+      date: day.dt_txt
+        .split(" ")[0]
+        .split("-")
+        .reverse()
+        .join(".")
+        .slice(0, -5),
+      time: day.dt_txt.split(" ")[1],
       iconID: day.weather[0].icon,
       temp: Math.round(day.main.temp),
       windSpeed: day.wind ? Math.round(day.wind.gust) + " m/s" : "no wind",

@@ -29,7 +29,7 @@ const SingleWeather = () => {
 
   const onInfoLoaded = (info) => {
     const todayDetails = info.filter((day) => {
-      if (day.date.getDate() == date) return day;
+      if (day.date.slice(0, -3) == date) return day;
     });
     console.log(todayDetails);
     setInfoForDay(todayDetails);
@@ -39,41 +39,22 @@ const SingleWeather = () => {
 };
 
 const View = ({ data }) => {
-  const detail = data.filter((day) => {
-    return day.date.getHours() === 12;
-  });
-  const { clouds, windSpeed, pressure, rain } = detail[0];
+  const { clouds, windSpeed, pressure, rain, date } = data[0];
 
-  const day =
-    data[0].date.getDate() < 10
-      ? "0" + data[0].date.getDate()
-      : data[0].date.getDate();
-  const month =
-    data[0].date.getMonth() + 1 < 10
-      ? `0${data[0].date.getMonth() + 1}`
-      : data[0].date.getMonth() + 1;
   return (
     <div className="container">
       <p className="singleWeather__title">
-        Weather forecast for {day}.{month} by hours
+        Weather forecast for {date} by hours
       </p>
 
       <div className="weather__hours-cards">
         {data.map((day) => {
           const temp = day["temp"];
           const imagePath = `https://openweathermap.org/img/wn/${day["iconID"]}.png`;
-          const hour =
-            day["date"].getHours() < 10
-              ? "0" + day["date"].getHours()
-              : day["date"].getHours();
-          const minutes =
-            day["date"].getMinutes() < 10
-              ? `0${day["date"].getMinutes()}`
-              : day["date"].getMinutes();
-          const fullTime = `${hour}:${minutes}`;
+          const time = day.time.slice(0, -3);
           return (
-            <div className="weather__hours-card " key={fullTime}>
-              <p className="text weather__card-time">{fullTime}</p>
+            <div className="weather__hours-card " key={time}>
+              <p className="text weather__card-time">{time}</p>
               <img src={imagePath} className="weather__hours-img" />
               <p className="text weather__card-temp">{temp}°C</p>
             </div>
